@@ -27,6 +27,48 @@
 
 OFX_OBJLOADER_BEGIN_NAMESPACE
 
+void load_oldway(string path, ofMesh& mesh, bool generateNormals) {
+	path = ofToDataPath(path);
+    
+    mesh.clear();
+    
+	GLMmodel* m;
+	
+	m = glmReadOBJ((char*)path.c_str());
+	
+    if(generateNormals){
+        glmFacetNormals(m);
+        glmVertexNormals(m, 90);
+    }
+    
+    GLfloat *v, *n, *c;
+    for(int i = 1; i <= m->numvertices; i++){
+        v = &m->vertices[3 * i];
+		mesh.addVertex(ofVec3f(v[0], v[1], v[2]));
+    }
+    
+	for(int i = 1; i <= m->numnormals; i++){
+        n = &m->normals[3 * i];
+        mesh.addNormal(ofVec3f(n[0], n[1], n[2]));
+    }
+    
+    for(int i = 1; i <= m->numtexcoords; i++){
+        c = &m->texcoords[2 * i];
+        mesh.addTexCoord(ofVec2f(c[0], c[1]));
+    }
+    
+	for (int i = 0; i < m->numtriangles; i++) {
+		GLMtriangle &t = m->triangles[i];
+        
+        //NOTE: ofMesh does not have support for different indices for tex coords and mormals
+		mesh.addIndex(t.vindices[0]-1);
+        mesh.addIndex(t.vindices[1]-1);
+        mesh.addIndex(t.vindices[2]-1);
+	}
+	
+	glmDelete(m);
+}
+
 void load(string path, ofMesh& mesh, bool generateNormals, bool flipFace)
 {
 	path = ofToDataPath(path);

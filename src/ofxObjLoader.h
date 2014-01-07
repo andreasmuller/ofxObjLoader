@@ -40,6 +40,9 @@ void loadGroup(string path, map<string, ofMesh>& groups, bool generateNormals = 
 void vertexColorToFaceColor(ofMesh& mesh);
 void faceColorToTexture(ofMesh& mesh, ofImage& image);
 
+//JG hack to get indexed meshes back
+void load_oldway(string path, ofMesh& mesh, bool generateNormals = false);
+
 OFX_OBJLOADER_END_NAMESPACE
 
 namespace ofxObjLoader = ofx::ObjLoader;
