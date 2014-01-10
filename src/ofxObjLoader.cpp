@@ -30,6 +30,11 @@ OFX_OBJLOADER_BEGIN_NAMESPACE
 void load_oldway(string path, ofMesh& mesh, bool generateNormals) {
 	path = ofToDataPath(path);
     
+    if(!ofFile(path).exists()){
+        ofLogError("ofxObjLoader::load") << "Couldn't find file " << path;
+        return;
+    }
+
     mesh.clear();
     
 	GLMmodel* m;
@@ -73,7 +78,12 @@ void load(string path, ofMesh& mesh, bool generateNormals, bool flipFace)
 {
 	path = ofToDataPath(path);
 
-	mesh.clear();
+    mesh.clear();
+
+    if(!ofFile(path).exists()){
+        ofLogError("ofxObjLoader::load") << "Couldn't find file " << path;
+        return;
+    }
 
 	GLMmodel* m;
 
