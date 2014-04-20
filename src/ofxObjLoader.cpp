@@ -360,8 +360,9 @@ void save(string path, const ofMesh& mesh_, bool flipFace, bool flipNormals, boo
 void saveGroup(string path, const vector<ofMesh> & meshGroup, bool flipFace, bool flipNormals) {
 	path = ofToDataPath(path);
 	
+#if (OF_VERSION_MINOR >= 8)
 	ofFilePath::createEnclosingDirectory(path);
-    
+#endif
 	GLuint writeMode = GLM_NONE;
 	GLMmodel * m = new GLMmodel();
     GLMgroup * group = NULL;
