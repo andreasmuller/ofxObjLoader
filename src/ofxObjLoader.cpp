@@ -76,7 +76,7 @@ void load_oldway(string path, ofMesh& mesh, bool generateNormals) {
 
 void load(string path, ofMesh& mesh, bool generateNormals, bool flipFace)
 {
-	path = ofToDataPath(path);
+	path = ofToDataPath(path, true);
 
     mesh.clear();
 
