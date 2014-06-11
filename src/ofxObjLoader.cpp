@@ -134,7 +134,7 @@ void load(string path, ofMesh& mesh, bool generateNormals, bool flipFace)
 
 void loadGroup(string path, map<string, ofMesh>& groups, bool generateNormals)
 {
-	path = ofToDataPath(path);
+	path = ofToDataPath(path, true);
 
 	groups.clear();
 
