@@ -28,7 +28,7 @@
 OFX_OBJLOADER_BEGIN_NAMESPACE
 
 void load_oldway(string path, ofMesh& mesh, bool generateNormals) {
-	path = ofToDataPath(path);
+	path = ofToDataPath(path, true);
     
     if(!ofFile(path).exists()){
         ofLogError("ofxObjLoader::load") << "Couldn't find file " << path;
@@ -134,7 +134,7 @@ void load(string path, ofMesh& mesh, bool generateNormals, bool flipFace)
 
 void loadGroup(string path, map<string, ofMesh>& groups, bool generateNormals)
 {
-	path = ofToDataPath(path);
+	path = ofToDataPath(path, true);
 
 	groups.clear();
 
