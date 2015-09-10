@@ -20,7 +20,7 @@ void ofxObjModel::draw()
     for (auto& it : meshes) {
         // Check if there's a matching material.
         int matIdx = -1;
-        if (mappings.find(it.first) != mappings.end()) {
+        if (materials.size() && mappings.find(it.first) != mappings.end()) {
             matIdx = mappings[it.first];
         }
         
