@@ -25,6 +25,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxObjModel.h"
 
 #define OFX_OBJLOADER_BEGIN_NAMESPACE namespace ofx { namespace ObjLoader {
 #define OFX_OBJLOADER_END_NAMESPACE } }
@@ -36,6 +37,8 @@ void save(string path, const ofMesh& mesh, bool flipFace = false, bool flipNorma
 
 void loadGroup(string path, map<string, ofMesh>& groups, bool generateNormals = true);
 void saveGroup(string path, const vector<ofMesh> & meshGroup, bool flipFace = false, bool flipNormals = false);
+
+void loadModel(const string& path, ofxObjModel& model, bool generateNormals = true, bool flipFace = false);
 
 // utils
 void vertexColorToFaceColor(ofMesh& mesh);
