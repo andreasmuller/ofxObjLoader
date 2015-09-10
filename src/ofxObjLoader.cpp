@@ -109,12 +109,12 @@ void load(string path, ofMesh& mesh, bool generateNormals, bool flipFace)
 			GLfloat *v = m->vertices + (tri.vindices[k] * 3);
 			mesh.addVertex(ofVec3f(v[0], v[1], v[2]));
 
-			if (m->colors)
-			{
-				GLfloat *c = m->colors + (tri.vindices[k] * 3);
-				mesh.addColor(ofFloatColor(c[0], c[1], c[2]));
-			}
-
+//			if (m->colors)
+//			{
+//				GLfloat *c = m->colors + (tri.vindices[k] * 3);
+//				mesh.addColor(ofFloatColor(c[0], c[1], c[2]));
+//			}
+            
 			if (m->normals && ofInRange(tri.nindices[k], 0, m->numnormals))
 			{
 				GLfloat *n = m->normals + (tri.nindices[k] * 3);
@@ -167,11 +167,11 @@ void loadGroup(string path, map<string, ofMesh>& groups, bool generateNormals)
 				GLfloat *v = m->vertices + (tri.vindices[k] * 3);
 				t.addVertex(ofVec3f(v[0], v[1], v[2]));
 
-				if (m->colors)
-				{
-					GLfloat *c = m->colors + (tri.vindices[k] * 3);
-					t.addColor(ofFloatColor(c[0], c[1], c[2]));
-				}
+//				if (m->colors)
+//				{
+//					GLfloat *c = m->colors + (tri.vindices[k] * 3);
+//					t.addColor(ofFloatColor(c[0], c[1], c[2]));
+//				}
 
 				if (m->normals && ofInRange(tri.nindices[k], 0, m->numnormals))
 				{
@@ -227,33 +227,29 @@ void loadModel(const string& path, ofxObjModel& model, bool generateNormals, boo
     while (g) {
         string name = g->name;
 
-        ofMesh t;
-        GLMtriangle *p = m->triangles;
+        ofMesh mesh;
+        
+        GLMtriangle *t = m->triangles;
         
         for (int j = 0; j < g->numtriangles; j++) {
-            GLMtriangle tri = p[g->triangles[j]];
+            GLMtriangle tri = t[g->triangles[j]];
             for (int k = 0; k < 3; k++) {
                 GLfloat *v = m->vertices + (tri.vindices[k] * 3);
-                t.addVertex(ofVec3f(v[0], v[1], v[2]));
-                
-                if (m->colors) {
-                    GLfloat *c = m->colors + (tri.vindices[k] * 3);
-                    t.addColor(ofFloatColor(c[0], c[1], c[2]));
-                }
+                mesh.addVertex(ofVec3f(v[0], v[1], v[2]));
                 
                 if (m->normals && ofInRange(tri.nindices[k], 0, m->numnormals)) {
                     GLfloat *n = m->normals + (tri.nindices[k] * 3);
-                    t.addNormal(ofVec3f(n[0], n[1], n[2]));
+                    mesh.addNormal(ofVec3f(n[0], n[1], n[2]));
                 }
                 
                 if (m->texcoords && ofInRange(tri.tindices[k], 0, m->numtexcoords)) {
                     GLfloat *c = m->texcoords + (tri.tindices[k] * 2);
-                    t.addTexCoord(ofVec2f(c[0], c[1]));
+                    mesh.addTexCoord(ofVec2f(c[0], c[1]));
                 }
             }
         }
         
-        model.meshes[name] = t;
+        model.meshes[name] = mesh;
         
         // Link a material, if any.
         if (ofInRange(g->material, 0, model.materials.size())) {
@@ -324,8 +320,8 @@ void save(string path, const ofMesh& mesh_, bool flipFace, bool flipNormals, boo
 			mat->name = (char*)malloc(material_name.size());
 			strcpy(mat->name, material_name.c_str());
 			
-			mat->texture_path = (char*)malloc(image_name.size());
-			strcpy(mat->texture_path, image_name.c_str());
+//			mat->texture_path = (char*)malloc(image_name.size());
+//			strcpy(mat->texture_path, image_name.c_str());
 		}
 	}
 

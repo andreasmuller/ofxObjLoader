@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64016B291BA21C610004B87C /* glm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64016B1F1BA21C610004B87C /* glm.cpp */; };
 		6443523C1B6ED90700C76823 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 644352391B6ED90700C76823 /* main.cpp */; };
 		644352481B6ED9A000C76823 /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 644352441B6ED92C00C76823 /* openFrameworksDebug.a */; };
 		648B658B1BA0F4DD006BB09E /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 648B65891BA0F4DD006BB09E /* ofApp.cpp */; };
-		648B65BB1BA0F4F9006BB09E /* glm.c in Sources */ = {isa = PBXBuildFile; fileRef = 648B65B11BA0F4F9006BB09E /* glm.c */; };
 		648B65BD1BA0F4F9006BB09E /* ofxObjLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 648B65B51BA0F4F9006BB09E /* ofxObjLoader.cpp */; };
 		648B65C31BA0FE93006BB09E /* ofxObjModel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 648B65C11BA0FE93006BB09E /* ofxObjModel.cpp */; };
 /* End PBXBuildFile section */
@@ -45,13 +45,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		64016B1F1BA21C610004B87C /* glm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = glm.cpp; sourceTree = "<group>"; };
+		64016B201BA21C610004B87C /* glm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glm.h; sourceTree = "<group>"; };
 		644352391B6ED90700C76823 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		6443523F1B6ED92C00C76823 /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = "<group>"; };
 		644352451B6ED93E00C76823 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = "<group>"; };
 		648B65891BA0F4DD006BB09E /* ofApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofApp.cpp; sourceTree = "<group>"; };
 		648B658A1BA0F4DD006BB09E /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofApp.h; sourceTree = "<group>"; };
-		648B65B11BA0F4F9006BB09E /* glm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = glm.c; sourceTree = "<group>"; };
-		648B65B21BA0F4F9006BB09E /* glm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glm.h; sourceTree = "<group>"; };
 		648B65B51BA0F4F9006BB09E /* ofxObjLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxObjLoader.cpp; sourceTree = "<group>"; };
 		648B65B61BA0F4F9006BB09E /* ofxObjLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxObjLoader.h; sourceTree = "<group>"; };
 		648B65C11BA0FE93006BB09E /* ofxObjModel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxObjModel.cpp; sourceTree = "<group>"; };
@@ -102,8 +102,8 @@
 		648B65B01BA0F4F9006BB09E /* glm */ = {
 			isa = PBXGroup;
 			children = (
-				648B65B11BA0F4F9006BB09E /* glm.c */,
-				648B65B21BA0F4F9006BB09E /* glm.h */,
+				64016B1F1BA21C610004B87C /* glm.cpp */,
+				64016B201BA21C610004B87C /* glm.h */,
 			);
 			path = glm;
 			sourceTree = "<group>";
@@ -245,9 +245,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64016B291BA21C610004B87C /* glm.cpp in Sources */,
 				6443523C1B6ED90700C76823 /* main.cpp in Sources */,
 				648B65BD1BA0F4F9006BB09E /* ofxObjLoader.cpp in Sources */,
-				648B65BB1BA0F4F9006BB09E /* glm.c in Sources */,
 				648B658B1BA0F4DD006BB09E /* ofApp.cpp in Sources */,
 				648B65C31BA0FE93006BB09E /* ofxObjModel.cpp in Sources */,
 			);
