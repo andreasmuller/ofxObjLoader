@@ -216,7 +216,8 @@ void loadModel(const string& path, ofxObjModel& model, bool generateNormals, boo
         materialData.diffuse.set(m->materials[i].diffuse[0], m->materials[i].diffuse[1], m->materials[i].diffuse[2], m->materials[i].diffuse[3]);
         materialData.ambient.set(m->materials[i].ambient[0], m->materials[i].ambient[1], m->materials[i].ambient[2], m->materials[i].ambient[3]);
         materialData.specular.set(m->materials[i].specular[0], m->materials[i].specular[1], m->materials[i].specular[2], m->materials[i].specular[3]);
-        materialData.emissive.set(m->materials[i].emmissive[0], m->materials[i].emmissive[1], m->materials[i].emmissive[2], m->materials[i].emmissive[3]);
+        // Don't set emissive because it's always garbage (not sure why).
+        //materialData.emissive.set(m->materials[i].emmissive[0], m->materials[i].emmissive[1], m->materials[i].emmissive[2], m->materials[i].emmissive[3]);
         materialData.shininess = m->materials[i].shininess;
         model.materials[i].setData(materialData);
     }
