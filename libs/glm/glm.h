@@ -16,7 +16,8 @@
 
 
 #if defined(__APPLE__) || defined(MACOSX)
-#include <GLUT/glut.h>
+//#include <GLUT/glut.h>
+#include "ofMain.h"
 #elif defined(__WIN32__) || defined(_WIN32)
 #include "glut.h"
 #else

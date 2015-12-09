@@ -1575,6 +1575,7 @@ glmWriteOBJ(GLMmodel* model, char* filename, GLuint mode)
 GLvoid
 glmDraw(GLMmodel* model, GLuint mode)
 {
+	/*
     static GLuint i;
     static GLMgroup* group;
     static GLMtriangle* triangle;
@@ -1583,7 +1584,7 @@ glmDraw(GLMmodel* model, GLuint mode)
     assert(model);
     assert(model->vertices);
     
-    /* do a bit of warning */
+    // do a bit of warning
     if (mode & GLM_FLAT && !model->facetnorms) {
         printf("glmDraw() warning: flat render mode requested "
                "with no facet normals defined.\n");
@@ -1624,10 +1625,10 @@ glmDraw(GLMmodel* model, GLuint mode)
     else if (mode & GLM_MATERIAL)
         glDisable(GL_COLOR_MATERIAL);
     
-    /* perhaps this loop should be unrolled into material, color, flat,
-     smooth, etc. loops?  since most cpu's have good branch prediction
-     schemes (and these branches will always go one way), probably
-     wouldn't gain too much?  */
+    // perhaps this loop should be unrolled into material, color, flat,
+    // smooth, etc. loops?  since most cpu's have good branch prediction
+    // schemes (and these branches will always go one way), probably
+    // wouldn't gain too much?
     
     group = model->groups;
     while (group) {
@@ -1673,6 +1674,7 @@ glmDraw(GLMmodel* model, GLuint mode)
         
         group = group->next;
     }
+	 */
 }
 
 /* glmList: Generates and returns a display list for the model using
@@ -1692,13 +1694,13 @@ glmDraw(GLMmodel* model, GLuint mode)
 GLuint
 glmList(GLMmodel* model, GLuint mode)
 {
-    GLuint list;
-    
+    GLuint list = 0;
+    /*
     list = glGenLists(1);
     glNewList(list, GL_COMPILE);
     glmDraw(model, mode);
     glEndList();
-    
+    */
     return list;
 }
 
