@@ -74,7 +74,7 @@ void load_oldway(string path, ofMesh& mesh, bool generateNormals) {
 	glmDelete(m);
 }
 
-void load(string path, ofMesh& mesh, bool generateNormals, bool flipFace)
+void load(string path, ofMesh& mesh, bool generateNormals, bool flipFace, int maxAngleSmooth )
 {
 	path = ofToDataPath(path, true);
 
@@ -92,7 +92,7 @@ void load(string path, ofMesh& mesh, bool generateNormals, bool flipFace)
 	if (generateNormals)
 	{
 		glmFacetNormals(m);
-		glmVertexNormals(m, 90);
+		glmVertexNormals(m, maxAngleSmooth);
 	}
 
 	if (flipFace)
